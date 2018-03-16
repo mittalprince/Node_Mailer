@@ -17,6 +17,8 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+var port = process.env.PORT || 5050;
+
 app.get('/', (req, res) => {
     res.render('contact');
 });
@@ -70,4 +72,4 @@ app.post('/send', (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log('Server started...'));
+app.listen(port, () => console.log('Server started...'));
